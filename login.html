@@ -83,6 +83,11 @@ input:focus,select:focus{border-color:#2563FF;background:#fff;}
       <button class="social-btn" onclick="signIn()">🍎 Apple</button>
     </div>
     <div class="switch-txt">Don't have an account? <button onclick="switchTab('up')">Create one free</button></div>
+    <div style="margin-top:16px;padding-top:14px;border-top:1px solid #E1E4EA;">
+      <button onclick="viewDemo()" style="width:100%;padding:12px;background:#F7F8FA;border:2px solid #E1E4EA;border-radius:9px;color:#374151;font-family:'Inter',sans-serif;font-size:13px;font-weight:700;cursor:pointer;transition:all .2s;" onmouseover="this.style.background='#EEF3FF';this.style.borderColor='#2563FF';this.style.color='#2563FF'" onmouseout="this.style.background='#F7F8FA';this.style.borderColor='#E1E4EA';this.style.color='#374151'">
+        View Demo — no account needed
+      </button>
+    </div>
   </div>
 
   <!-- ── SIGN UP (3 steps) ── -->
@@ -173,6 +178,12 @@ function goStep(n) {
     const fn = (document.getElementById('su-fn').value || 'user').toLowerCase().replace(/\s+/g,'');
     document.getElementById('invite-url').textContent = 'elevate.app/invite/' + fn + '2026';
   }
+}
+
+function viewDemo() {
+  sessionStorage.setItem('ev_authed', '1');
+  sessionStorage.setItem('ev_user_name', 'Jane Doe');
+  window.location.href = 'dashboard.html';
 }
 
 function signIn() {
